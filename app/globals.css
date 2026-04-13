@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #fbf7ee;
+  --fg: #2c3e50;
+  --mist: #8ecae6;
+  --mist-deep: #4a9fb8;
+  --ink: #2c3e50;
+  --ink-soft: #526577;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--fg);
+  scroll-behavior: smooth;
+}
+
+body {
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+@layer components {
+  .gsc-container {
+    @apply mx-auto w-full max-w-[1440px] px-5 md:px-10 lg:px-16;
+  }
+
+  .gsc-section {
+    @apply relative py-20 md:py-28 lg:py-32;
+  }
+
+  .gsc-eyebrow {
+    @apply inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.3em];
+  }
+
+  .gsc-eyebrow::before {
+    content: "";
+    @apply h-2 w-2 rounded-full bg-brand-yellow;
+  }
+
+  .gsc-h1 {
+    @apply font-display text-4xl leading-[1.05] md:text-6xl lg:text-7xl;
+    letter-spacing: -0.02em;
+  }
+
+  .gsc-h2 {
+    @apply font-display text-3xl leading-[1.1] md:text-5xl lg:text-6xl;
+    letter-spacing: -0.02em;
+  }
+
+  .gsc-btn {
+    @apply inline-flex items-center gap-3 rounded-full bg-brand-yellow px-7 py-4 text-sm font-semibold uppercase tracking-wider text-brand-black transition-all duration-300 hover:bg-brand-black hover:text-brand-yellow;
+  }
+
+  .gsc-btn-outline {
+    @apply inline-flex items-center gap-3 rounded-full border border-brand-yellow px-7 py-4 text-sm font-semibold uppercase tracking-wider text-brand-yellow transition-all duration-300 hover:bg-brand-yellow hover:text-brand-black;
+  }
+
+  .yellow-line {
+    @apply h-px w-24 bg-brand-yellow;
+  }
+}
+
+.header-hidden {
+  transform: translateY(-100%);
+}
+
+.header-scrolled {
+  background: rgba(44, 62, 80, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(142, 202, 230, 0.28);
+}
+
+.hero-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(44, 62, 80, 0.3) 0%,
+    rgba(44, 62, 80, 0.55) 60%,
+    rgba(44, 62, 80, 0.78) 100%
+  );
+}
+
+.card-hover {
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.5s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 60px -20px rgba(44, 62, 80, 0.18);
+}
